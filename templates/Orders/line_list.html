@@ -1,0 +1,36 @@
+{% extends 'Orders/main.html' %}
+{% block users %}
+    <div align="center">
+<a class="btn btn-info"  href="/" style="margin: 20px; ">На главную </a>
+    </div>
+<table class="table table-striped" style="text-align: center">
+                <thead>
+                    <th >Стол</th>
+                    <th width="45%">Исполнитель</th>
+                    <th width="45%">Песня</th>
+{#                    <th>Номер</th>#}
+{#                    <th>Каталог</th>#}
+
+                </thead>
+                <tbody>
+                {% for song in songs %}
+                    <tr {% if forloop.first %} class="success" {% endif %}>
+                        <td><p class="td_text">
+                          {% if user.username == song.table %}
+                           <b> {{ song.table }}</b>
+                          {% else %}
+                            {{ song.table }}
+                          {% endif %}
+                        </p></td>
+                        <td><p class="td_text">{{ song.song.artist.name }}</p></td>
+                        <td><p class="td_text">{{ song.song.tittle }}</p></td>
+{#                        <td><p class="td_text">{{ song.song.number }}</p></td>#}
+{#                        <td><p class="td_text">{{ song.song.karaoke_system }}</p></td>#}
+                    </tr>
+                {% empty %}
+
+                {% endfor %}
+                </tbody>
+            </table>
+
+{% endblock %}

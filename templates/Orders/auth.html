@@ -1,0 +1,15 @@
+{% extends 'Orders/main.html' %}
+{% block auth %}
+    <div style="margin-top: 15px" align="center">
+        <form action="/auth/" method="post">
+            {% csrf_token %}
+            <select name="user">
+                {% for user in users %}
+                    <option>{{user.username}} </option>
+                {% endfor %}
+                   <option>admin</option>
+            </select>
+            <input type="password" name="pass">
+        </form>
+    </div>
+{% endblock %}

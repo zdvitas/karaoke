@@ -1,0 +1,26 @@
+{% extends 'Orders/main.html' %}
+{% block users %}
+
+    <div class="row-fluid">
+        <div class="span12">
+            <table class="table table-striped">
+                <thead>
+                    <th>#</th>
+                    <th>Исполнитель</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                {% for artist in artists %}
+                    <tr>
+                        <td><p class="td_text">{{ forloop.counter }}</p></td>
+                        <td><p class="td_text">{{ artist.name }}</p></td>
+
+                        <td><a class="btn-block btn btn-success btn-large" href="/artist{{ artist.id }}">Показать</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'Orders/main.html' %}
+{% block admin %}
+  <a href="/logout"> <h3> Выход</h3> </a>
+  <a href="/next_song" class="btn ">  Следующая песня </a>
+  Сейчас играет - стол {{ cur }}.
+{% for table in tables %}
+<div class="row-fluid">
+
+    <div class="span12" style="padding: 20px">
+
+        <h1>Стол №{{ forloop.counter }}</h1>
+         <table class="table table-striped">
+                <thead>
+                    <th >#</th>
+                    <th width="322px">Исполнитель</th>
+                    <th width="322px">Песня</th>
+                    <th>Номер</th>
+                    <th>Каталог</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                {% for song in table.1 %}
+                    <tr>
+                        <td><p class="td_text">{{ forloop.counter }}</p></td>
+                        <td><p class="td_text">{{ song.song.artist.name }}</p></td>
+                        <td><p class="td_text">{{ song.song.tittle }}</p></td>
+                        <td><p class="td_text">{{ song.song.number }}</p></td>
+                        <td><p class="td_text">{{ song.song.karaoke_system }}</p></td>
+                        <td><a class="btn-block btn btn-danger btn-large" href="/admin_del{{ song.id }}">Delete</a></td>
+                    </tr>
+                {% empty %}
+
+                {% endfor %}
+                </tbody>
+            </table>
+    </div>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

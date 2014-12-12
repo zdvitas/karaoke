@@ -1,0 +1,5 @@
+[client]
+database = karaoke
+user = root
+password = sas7X23H
+default-character-set = utf8_general_ci

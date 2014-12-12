@@ -1,0 +1,65 @@
+{% extends 'Orders/main.html' %}
+{% block users %}
+    <div class="row-fluid">
+        <div class="span4 top-btns">
+             <a class="btn btn-info" href="/artists">Список исполнителей</a>
+        </div>
+
+        <div class="span4 top-btns">
+            <a href="/logout"> <h3> Стол {{ user.username }}</h3> </a>
+        </div>
+        <div class="span4 top-btns">
+             <a class="btn btn-info" href="/pull_list">Очередь</a>
+        </div>
+    </div>
+
+
+    <form method="post" action="/" >
+        {% csrf_token %}
+        <input type="hidden" name="table" value={{ table }}>
+    <div class="row-fluid" style="padding-top: 10px">
+        <div class="span1"></div>
+
+    <div class="span5" style="padding-top: 5px">
+        <div class="labels">Исполнитель &nbsp;</div>
+        <input type="text" name="artist" id = "artist" data-provide="typeahead" >
+    </div>
+
+    <div class="span4" style="padding-top: 5px">
+        <div class="labels">Песня &nbsp;</div>
+        <input type="text" name="song" id = "song" data-provide="typeahead" >
+    </div>
+    <div class="span2">
+        <button type="submit" class="btn-block btn btn-success btn-large" href="">Search</button>
+    </div>
+
+    </div>
+    </form>
+    <div class="row-fluid">
+        <div class="span12">
+            <table class="table table-striped">
+                <thead>
+                    <th>#</th>
+                    <th>Исполнитель</th>
+                    <th>Песня</th>
+                    <th>Минус</th>
+                    <th>Каталог</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                {% for song in songs %}
+                    <tr>
+                        <td><p class="td_text">{{ forloop.counter }}</p></td>
+                        <td><p class="td_text">{{ song.artist.name }}</p></td>
+                        <td><p class="td_text">{{ song.tittle }}</p></td>
+                        <td><p class="td_text">{{ song.minus_quality }}</p></td>
+                        <td><p class="td_text">{{ song.karaoke_system }}</p></td>
+                        <td><a class="btn-block btn btn-success btn-large" href="/order{{ song.number }}">Order</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

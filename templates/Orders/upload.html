@@ -1,0 +1,24 @@
+{% extends 'Orders/main.html' %}
+{% block users %}
+
+<form action="/uploads/" method="post">
+    {% csrf_token %}
+    <div align="center">
+  <fieldset>
+    <legend>Legend</legend>
+    <label>Label name</label>
+    <input name="file_name" type="text" placeholder="File name">
+    <button type="btn" class="btn">Browse</button>
+    <select>
+        <option>System 1</option>
+        <option>System 2</option>
+        <option>System 3</option>
+        <option>System 4</option>
+    </select>
+
+    <button type="submit" class="btn">Submit</button>
+  </fieldset>
+        </div>
+</form>
+
+{% endblock %}

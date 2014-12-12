@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link href="{{STATIC_URL}}bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="{{STATIC_URL}}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}main.css" rel="stylesheet">
+    <script src="{{STATIC_URL}}js/jquery.js"></script>
+    <script src="{{ STATIC_URL }}js/scripts.js"></script>
+
+    <link href="{{STATIC_URL}}css/main.css" rel="stylesheet">
+{#     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>#}
+    <script type="text/javascript" src="{{STATIC_URL}}js/settings.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}bootstrap/js/bootstrap.min.js"></script>
+
+    <title></title>
+</head>
+
+<body style="background-color: #000000">
+
+   <!-- <section id="devices">
+        <div class="deviceWrap kindle-landscape"><div class="device" style="width: 1024px;height: 396px;padding-top: 144px;padding-bottom: 60px;">
+        <div class="flashingTop" style="height: 144px; "><span class="time">15:49</span></div><div class="flashingBottom" style="height: 60px"></div> 
+        <div style="overflow : scroll;width: 1024px"> -->
+                        {% block auth %}
+                        {% endblock %}
+                        {% block users %}
+                        {% endblock %}
+                        {% block upload %}
+                        {% endblock %}
+                        {% block admin %}
+                        {% endblock %}
+        <!-- </div>
+       </div>
+        </div> 
+
+        <div class="deviceTitle"><em>Kindle горизонтально</em> 1024 x 600</div>
+    </section>-->
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'Orders/main_dark.html' %}
+{% block users %}
+<div style="height: 100%;background-color: #000000;color: #ffffff">
+<table class="table table-striped" style="background-color: #000000;color: #ffffff">
+                <thead>
+                    <th width="10%">Стол</th>
+                    <th width="45%">Исполнитель</th>
+                    <th width="45%">Песня</th>
+
+
+                </thead>
+                <tbody>
+                {% for song in songs %}
+                    <tr {% if forloop.first %} class="error" style="color: #000000" {% endif %} >
+                        <td><p class="td_text">
+                          {% if user.username == song.table %}
+                           <b> {{ song.table }}</b>
+                          {% else %}
+                            {{ song.table }}
+                          {% endif %}
+                        </p></td>
+                        <td><p class="td_text">{{ song.song.artist.name }}</p></td>
+                        <td><p class="td_text">{{ song.song.tittle }}</p></td>
+                   </tr>
+                {% empty %}
+
+                {% endfor %}
+                </tbody>
+            </table>
+</div>
+{% endblock %}
